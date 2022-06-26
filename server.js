@@ -12,6 +12,7 @@ connectDB();
 
 // Bringing in the routers
 const auth = require('./routes/auth.routes');
+const pupil = require('./routes/pupil.routes');
 
 const app = express();
 
@@ -22,9 +23,9 @@ app.use(cookieParser());
 // use morgan
 app.use(morgan('dev'))
 
-
 // Calling the routes to the app
 app.use('/api/v1/auth', auth);
+app.use('/api/v1/pupils', pupil);
 
 // errorHandler
 app.use(errorHandler)

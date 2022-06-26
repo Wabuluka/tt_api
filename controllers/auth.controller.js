@@ -41,8 +41,7 @@ exports.login = asyncHandler(
 
 exports.getProfile = asyncHandler( async (req, res, next)=>{
     console.log('sksksdksd')
-    const user = await User.findById(req.user.id);
-    
+    const user = await User.findById(req.user.id);    
     res.status(200).json({
         success: true,
         message: 'User Profile',
@@ -66,7 +65,6 @@ const sendTokenResponse = (user, statusCode, res) => {
     if(process.env.NODE_ENV==='production'){
         options.secure = true
     }
-
     res.status(statusCode)
         .cookie('token', token, options)
         .json({
